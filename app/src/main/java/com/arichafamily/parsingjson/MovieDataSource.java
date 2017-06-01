@@ -33,7 +33,7 @@ public class MovieDataSource {
                     URLConnection con = url.openConnection();
                     InputStream in = con.getInputStream();
                     String json = IO.getString(in);
-                    List<Movie> m = parseJson(json);
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -52,11 +52,11 @@ public class MovieDataSource {
             double rating = movieObject.getDouble("rating");
             int releaseYear = movieObject.getInt("releaseYear");
             JSONArray genresArray = movieObject.getJSONArray("genre");
-            String[] geres = new String[genresArray.length()];
-            for (int j = 0; j < geres.length; j++) {
-                geres[j] = genresArray.getString(j);
+            String[] genres = new String[genresArray.length()];
+            for (int j = 0; j < genres.length; j++) {
+                genres[j] = genresArray.getString(j);
             }
-            movies.add(new Movie();
+            movies.add(new Movie(title,image,rating,releaseYear,genres);
         }
 
         return movies;
